@@ -16,7 +16,9 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
@@ -31,7 +33,7 @@ class MainActivity : ComponentActivity() {
             HappyBirthdayTheme {
                 Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
                     GreetingImage(
-                        message = "Parabéns, Juliana!",
+                        message = stringResource(R.string.parabens_text),
                         from = "De Roberto"
                     )
                 }
@@ -55,8 +57,13 @@ fun GreetingText(message: String, from:String, modifier: Modifier = Modifier) {
 fun GreetingImage(message: String, from: String, modifier: Modifier = Modifier) {
     val image = painterResource(R.drawable.androidparty)
     Box(modifier) {
-        Image(painter = image, contentDescription = null)
-        GreetingText(message = message, from = from, modifier = Modifier.fillMaxSize().padding(8.dp))
+        Image(painter = image,
+            contentDescription = null,
+            contentScale = ContentScale.Crop, // crop faz a imagem preencher toda a area
+            alpha = 0.4F) // opacidade (de 0 a 1, em Float)
+        GreetingText(message = message, from = from, modifier = Modifier
+            .fillMaxSize()
+            .padding(8.dp))
     }
 }
 
@@ -66,7 +73,6 @@ fun GreetingImage(message: String, from: String, modifier: Modifier = Modifier) 
 @Composable
 fun GreetingPreview() {
     HappyBirthdayTheme {
-        //GreetingText(message = "Feliciades, Camila", from = "De Jenivaldo")
-        GreetingImage(message = "Feliciades, Camila", from = "De Jenivaldo")
+        GreetingImage(message = stringResource(R.string.feliciades_camila), from = stringResource(R.string.de_jenivaldo))
     }
 }

@@ -1,3 +1,6 @@
 <resources>
     <string name="app_name">Happy Birthday</string>
+    <string name="parabens_text">Parabéns, Juliana!</string>
+    <string name="feliciades_camila">Feliciades, Camila</string>
+    <string name="de_jenivaldo">De Jenivaldo</string>
 </resources>
