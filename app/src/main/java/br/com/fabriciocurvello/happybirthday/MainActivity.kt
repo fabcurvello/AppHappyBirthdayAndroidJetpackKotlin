@@ -22,7 +22,7 @@ class MainActivity : ComponentActivity() {
             HappyBirthdayTheme {
                 Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
                     GreetingText(
-                        message = "Lambisgóia",
+                        message = "Parabéns",
                         modifier = Modifier.padding(innerPadding),
                         from = "Godofredo"
                     )
@@ -45,6 +45,6 @@ fun GreetingText(message: String, from:String, modifier: Modifier = Modifier) {
 @Composable
 fun GreetingPreview() {
     HappyBirthdayTheme {
-        GreetingText(message = "Feliz aniversário Isa!", from = "Carlos")
+        GreetingText(message = "Feliz aniversário Ana Alice", from = "Jenivaldo")
     }
 }
