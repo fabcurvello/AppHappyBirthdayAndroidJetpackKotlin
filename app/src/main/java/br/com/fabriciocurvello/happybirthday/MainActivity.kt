@@ -4,6 +4,8 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Scaffold
@@ -22,9 +24,9 @@ class MainActivity : ComponentActivity() {
             HappyBirthdayTheme {
                 Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
                     GreetingText(
-                        message = "Parabéns",
+                        message = "Parabéns, Juliana!",
                         modifier = Modifier.padding(innerPadding),
-                        from = "Godofredo"
+                        from = "De Roberto"
                     )
                 }
             }
@@ -35,8 +37,11 @@ class MainActivity : ComponentActivity() {
 
 @Composable
 fun GreetingText(message: String, from:String, modifier: Modifier = Modifier) {
-    Text(text = message, fontSize = 100.sp, lineHeight = 116.sp)
-    Text(text = from, fontSize = 36.sp)
+    Column {
+        Text(text = message, fontSize = 92.sp, lineHeight = 116.sp)
+        Text(text = from, fontSize = 36.sp)
+    }
+
 }
 
 @Preview(showBackground = true,
@@ -45,6 +50,6 @@ fun GreetingText(message: String, from:String, modifier: Modifier = Modifier) {
 @Composable
 fun GreetingPreview() {
     HappyBirthdayTheme {
-        GreetingText(message = "Feliz aniversário Ana Alice", from = "Jenivaldo")
+        GreetingText(message = "Feliciades, Camila", from = "De Jenivaldo")
     }
 }
